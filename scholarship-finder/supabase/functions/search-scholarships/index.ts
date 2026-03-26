@@ -213,12 +213,12 @@ Only include scholarships with deadlines AFTER ${currentDate}.`;
                     const data = JSON.parse(jsonStr);
 
                     // Forward streaming URL
-                    if (data.type === "STREAMING_URL" && data.streamingUrl) {
+                    if (data.type === "STREAMING_URL" && data.streaming_url) {
                       sendEvent({
                         type: "AGENT_STREAMING",
                         agentId,
                         siteName: site.name,
-                        streamingUrl: data.streamingUrl,
+                        streamingUrl: data.streaming_url,
                       });
                     }
 
