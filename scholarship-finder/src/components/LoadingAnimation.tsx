@@ -18,7 +18,7 @@ interface AgentStatus {
   description?: string;
   status: "pending" | "running" | "complete" | "error";
   message?: string;
-  streamingUrl?: string;
+  streaming_url?: string;
   scholarships?: Scholarship[];
   error?: string;
 }
@@ -110,7 +110,7 @@ export function LoadingAnimation({ searchState }: LoadingAnimationProps) {
 
       {/* Expanded Preview Modal */}
       <AnimatePresence>
-        {expandedAgent && searchState.agents[expandedAgent]?.streamingUrl && (
+        {expandedAgent && searchState.agents[expandedAgent]?.streaming_url && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -139,7 +139,7 @@ export function LoadingAnimation({ searchState }: LoadingAnimationProps) {
                 </button>
               </div>
               <iframe
-                src={searchState.agents[expandedAgent]?.streamingUrl}
+                src={searchState.agents[expandedAgent]?.streaming_url}
                 className="w-full h-[60vh] border-0"
                 title="Live browser preview"
               />
@@ -221,7 +221,7 @@ function AgentCard({
           {statusIcons[agent.status]}
           <span className="text-sm font-medium truncate">{agent.siteName}</span>
         </div>
-        {agent.streamingUrl && agent.status === "running" && (
+        {agent.streaming_url && agent.status === "running" && (
           <button 
             onClick={onExpand}
             className="p-1 hover:bg-primary/10 rounded transition-colors"
@@ -235,10 +235,10 @@ function AgentCard({
       {/* Content */}
       <div className="relative">
         {/* Mini Preview */}
-        {agent.streamingUrl && agent.status === "running" ? (
+        {agent.streaming_url && agent.status === "running" ? (
           <div className="h-32 bg-white relative">
             <iframe
-              src={agent.streamingUrl}
+              src={agent.streaming_url}
               className="w-full h-full border-0 pointer-events-none"
               title={`Preview of ${agent.siteName}`}
             />
