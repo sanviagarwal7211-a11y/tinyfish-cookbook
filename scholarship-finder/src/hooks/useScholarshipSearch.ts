@@ -15,7 +15,7 @@ interface AgentStatus {
   description?: string;
   status: "pending" | "running" | "complete" | "error";
   message?: string;
-  streamingUrl?: string;
+  streaming_url?: string;
   scholarships?: Scholarship[];
   error?: string;
 }
@@ -140,7 +140,7 @@ export function useScholarshipSearch() {
                     [data.agentId]: {
                       ...prev.agents[data.agentId],
                       status: "running",
-                      streamingUrl: data.streamingUrl,
+                      streaming_url: data.streaming_url,
                       message: "Browsing...",
                     },
                   },
