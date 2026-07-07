@@ -1,6 +1,7 @@
 # MarketPulse
 
 Retail intelligence for a Vietnam electronics retailer — tracks 5 real competitors' laptop and PC component pricing/stock daily, and automates the first draft of restock requests when our own stock runs low.
+**Live Link - ** https://marketpulse-gray.vercel.app/
 
 ## How it works
 
