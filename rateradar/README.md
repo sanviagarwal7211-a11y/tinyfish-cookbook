@@ -3,6 +3,7 @@
 **Compare live loan rates and savings yields across Vietnam's banks, with Shinhan Bank featured — then auto-fill applications at every bank in parallel, stopping just short of submitting.**
 
 Built for the Financial Services track of Agentic AI Build Week ([aabw.genaifund.ai](https://aabw.genaifund.ai/)), sponsored by **Shinhan Bank / Shinhan Future's Lab Vietnam**.
+**Live Link - ** https://rateradar-teal.vercel.app/
 
 ---
 
