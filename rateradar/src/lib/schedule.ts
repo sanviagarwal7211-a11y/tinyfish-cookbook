@@ -1,4 +1,4 @@
-// One sweep per day, fixed at 13:00 Vietnam time (Asia/Ho_Chi_Minh, UTC+7),
+// One sweep per day, fixed at 14:00 Vietnam time (Asia/Ho_Chi_Minh, UTC+7),
 // matching the real-world cadence retailers actually change price/stock at —
 // not a fake "every N minutes" polling loop.
 export const SWEEP_HOUR_ICT = 14;
@@ -41,7 +41,7 @@ export function isSweepDue(lastSweepAtISO: string | null): boolean {
   if (!lastSweepAtISO) return true;
   const last = new Date(lastSweepAtISO);
   const nowVN = nowInVietnam();
-  // Due if the last sweep happened before today's 13:00 ICT mark and we're
+  // Due if the last sweep happened before today's 14:00 ICT mark and we're
   // currently past it.
   const todayMark = new Date(nowVN);
   todayMark.setUTCHours(SWEEP_HOUR_ICT - 7, 0, 0, 0);

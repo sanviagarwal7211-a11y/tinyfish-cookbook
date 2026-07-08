@@ -6,3 +6,5 @@ out/
 *.log
 .DS_Store
 .local-state.json
+next-env.d.ts
+tsconfig.tsbuildinfo

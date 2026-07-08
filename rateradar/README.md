@@ -16,7 +16,7 @@ Financial Services is officially an enterprise track (the end user is meant to b
 ## What it does
 
 1. **Pick a product** — a 12-month savings deposit, a home loan, or a personal loan
-2. **See live rates** across Shinhan Bank and 7 real competitors (Vietcombank, Techcombank, VPBank, BIDV, MB Bank, ACB, TPBank), sorted best-first — savings compares highest APY, loans compare lowest interest rate
+2. **See live rates** across Shinhan Bank and 5 real competitors (Vietcombank, Techcombank, VPBank, BIDV, MB Bank), sorted best-first — savings compares highest APY, loans compare lowest interest rate
 3. **Enter your details once** — name, amount, tenure
 4. **Auto-fill applications at every bank in parallel** — one real-time TinyFish agent per bank, filling that bank's actual application/inquiry form with your details
 5. **Review and submit yourself** — the agent stops before the final submit step on every bank's site. It never completes a binding financial application on your behalf; you get a direct link to each bank's form plus an estimated monthly payment/interest, and you finish it there
@@ -29,7 +29,7 @@ Shinhan's own rates come from an internal feed, never scraped — a bank already
 
 ```
 .github/workflows/sweep.yml
-  Daily cron, 06:00 UTC = 13:00 Vietnam time
+  Daily cron, 07:00 UTC = 14:00 Vietnam time
         |
         v
 scripts/sweep.ts  -->  POST /api/sweep (deployed app)
@@ -37,7 +37,7 @@ scripts/sweep.ts  -->  POST /api/sweep (deployed app)
         v
 lib/sweep.ts: runSweep()
   1. internal.ts   -> Shinhan's own rates, NEVER scraped
-  2. rates.ts (x7) -> real-time TinyFish agents, one per bank, all 3
+  2. rates.ts (x5) -> real-time TinyFish agents, one per bank, all 3
                       products read in a single pass each
         |
         v
@@ -66,7 +66,7 @@ Staged applications, reviewed and submitted by the person themselves
 | Framework | Next.js 15 (App Router) |
 | Language | TypeScript |
 | Rate + form-fill agents | TinyFish Web Agent API (`@tiny-fish/sdk`, stealth profile, queue + poll) |
-| Scheduling | GitHub Actions (daily cron, 13:00 Vietnam time) |
+| Scheduling | GitHub Actions (daily cron, 14:00 Vietnam time) |
 | Persistence | Upstash Redis (falls back to a local JSON file in dev) |
 | Styling | Tailwind CSS |
 | Deployment | Vercel |
@@ -93,7 +93,7 @@ Open [http://localhost:3000](http://localhost:3000). First local run bootstraps 
 
 1. Push to GitHub, import into Vercel, add the four env vars above.
 2. On the GitHub repo, add Actions secrets `APP_URL` (your Vercel URL) and `CRON_SECRET` (same value).
-3. `.github/workflows/sweep.yml` fires automatically every day at 13:00 Vietnam time.
+3. `.github/workflows/sweep.yml` fires automatically every day at 14:00 Vietnam time.
 
 ## Notes for the pitch
 
